@@ -58,16 +58,16 @@ def test(request):
         # print(request.POST.get('location'))
         # data = JSONParser().parse(request)
         data_list = request.POST.get('location')
-        places = []
-        for data in data_list:
-            if(not validators.url(data)):
-                places.append(data)
+        # places = []
+        # for data in data_list:
+        #     if(not validators.url(data)):
+        #         places.append(data)
         
-        place = places[0]
-        response = {}
-        response['pollen'] = getpollendata(place)
-        response['aqi'] = getaqi(place)
-        response['temperature'], response['humidity'], response['windSpeed'] = getweather(place)
+        # place = places[0]
+        # response = {}
+        # response['pollen'] = getpollendata(place)
+        # response['aqi'] = getaqi(place)
+        # response['temperature'], response['humidity'], response['windSpeed'] = getweather(place)
         return JsonResponse({"response":'true'},safe=False)
     
 

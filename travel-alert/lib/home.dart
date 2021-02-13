@@ -5,10 +5,13 @@ import 'http_service.dart';
 import 'dart:async';
 import 'dart:convert';
 
-Future<Weather> sendlocation(List<String> locations) async {
+// Sam Smith
+// Dancing with a Stranger 
 
+
+Future<Weather> sendlocation(List<String> locations) async {
   final response = await http.post(
-    Uri.https('url', 'locations'),
+    Uri.https('http://10.0.2.2:8000/test/', 'locations'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -25,14 +28,13 @@ Future<Weather> sendlocation(List<String> locations) async {
 }
 
 class Weather {
-  final int id;
   final String update;
 
-  Weather({this.id, this.update});
+  Weather({this.update});
 
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-      id: json['id'],
+      // id: json['id'],
       update: json['update'],
     );
   }
@@ -57,14 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-   Future<Weather> _futureupdate;
+  Future<Weather> _futureupdate;
 
   getevents() async {
     await retrieveCalendars();
   }
 
-
-@override
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Weather Updates',
@@ -82,7 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    
                     ElevatedButton(
                       child: Text('send data'),
                       onPressed: () {
