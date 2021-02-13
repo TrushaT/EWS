@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
 
-    path('', views.getpollendata, name='test'), 
+    path('', views.test, name='test'), 
 
         
 ]
