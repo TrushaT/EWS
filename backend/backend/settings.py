@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pills',
     'ambee',
     'authentication',
+    
 ]
 
 MIDDLEWARE = [
